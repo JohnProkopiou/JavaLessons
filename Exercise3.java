@@ -3,41 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercises.exercise3;
+package exercises;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author johnp
  */
-class ThreeOverloads {
-
-    public void f(int i) {
-        System.out.println("f(int i)");
-    }
-
-    public void f(char c) {
-        System.out.println("f(char c)");
-    }
-
-    public void f(double d) {
-        System.out.println("f(double d)");
-    }
-}
-
-class MoreOverloads extends ThreeOverloads {
-
-    public void f(String s) {
-        System.out.println("f(String s)");
-    }
-}
-
 public class Exercise3 {
 
-    public static void main(String args[]) {
-        MoreOverloads mo = new MoreOverloads();
-        mo.f(1);
-        mo.f('c');
-        mo.f(1.1);
-        mo.f("hello");
+    static String line = null;
+
+    public static void main(String[] args) {
+        String line = null;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("Earth.txt"));
+            printFile(bufferedReader);
+            closeBufferedReader(bufferedReader);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Exercise3.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
+
+    public static void closeBufferedReader(BufferedReader bufferedReader) {
+        try {
+            bufferedReader.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Exercise3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void printFile(BufferedReader bufferedReader) {
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Exercise3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

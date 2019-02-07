@@ -9,12 +9,7 @@ package exercise6;
  *
  * @author johnp
  */
-public interface Animal {
-    
-    public void eat();
-    
-    public void sleep();
-    
-    public void speak();
-    
+public class SofaDog extends Dog {
+
+    //sofa dogs are like ordinary dogs
 }

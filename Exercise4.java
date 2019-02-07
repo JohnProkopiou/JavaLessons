@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercises.exercise4;
+package exercises;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -11,11 +14,17 @@ package exercises.exercise4;
  */
 public class Exercise4 {
 
-    public static void main(String args[]) {
-        Stage stage = new Stage();
-        stage.performPlay();
-        stage.change();
-        stage.performPlay();
-    }
+    public static void main(String[] args) {
+        Map< Integer, String> ages = new TreeMap<>();
+        ages.put(19, "Mary");
+        ages.put(2, "Geneva");
+        ages.put(57, "Vicki");
+        for (int age :ages.keySet()) {
+            if (age<50) {
+                String name = ages.get(age);
+                System.out.println(name + " -> " + age);
 
+            }
+        }
+    }
 }

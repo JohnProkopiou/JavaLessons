@@ -9,12 +9,15 @@ package exercise6;
  *
  * @author johnp
  */
-public interface Animal {
-    
-    public void eat();
-    
-    public void sleep();
-    
-    public void speak();
-    
+public class WorkingDog extends Dog {
+
+    public void work() {
+        System.out.println("I work");
+    }
+
+    @Override
+    public void speak() {
+        System.out.println("I speak");
+    }
+
 }
